@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './news.component.scss'
 })
 export class NewsComponent {
+item: any;
 
   constructor(private postService:PostService, private snackBar: MatSnackBar){}
 

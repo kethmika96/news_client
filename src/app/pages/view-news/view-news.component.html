@@ -5,27 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ postData.name }}</title>
     <!-- Meta tags for SEO -->
-    <meta name="description" content="Add a concise description of the content of your page here.">
-    <meta name="keywords" content="Add relevant keywords related to your content here">
-    <meta name="author" content="Your Name or Your Company Name">
+    <meta name="description" content="{{ postData.content }}">
+    <meta name="keywords" content="{{ postData.tag }}">
+    <meta name="author" content="{{ postData.postedBy }}">
     <!-- Open Graph Meta Tags (for better social media sharing) -->
     <meta property="og:title" content="{{ postData.name }}">
-    <meta property="og:description" content="Add a concise description of the content of your page here.">
+    <meta property="og:description" content="{{ postData.content }}">
     <meta property="og:image" content="{{ postData.img }}">
-    <meta property="og:url" content="https://www.yourwebsite.com/your-page-url">
+    <meta property="og:url" content="http://localhost:4200/view-news/">
     <meta property="og:type" content="website">
     <!-- Twitter Meta Tags (for Twitter Cards) -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ postData.name }}">
-    <meta name="twitter:description" content="Add a concise description of the content of your page here.">
+    <meta name="twitter:description" content="{{ postData.content }}">
     <meta name="twitter:image" content="{{ postData.img }}">
     <!-- Canonical URL (if necessary) -->
-    <link rel="canonical" href="https://www.yourwebsite.com/your-page-url">
+    <link rel="canonical" href="http://localhost:4200/view-news/">
     <!-- Robots Meta Tags -->
     <meta name="robots" content="index, follow">
 </head>
 <body>
-            <!--  Angular component code -->
 
         <div *ngIf="postData" class="card-container">
             <mat-card>
@@ -53,5 +52,5 @@
             </mat-card>
             </div>
 
-</body>
-</html>
+        </body>
+        </html>

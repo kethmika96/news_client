@@ -1,29 +1,59 @@
-<div class="card-container" *ngFor="let item of allpost">
-    <mat-card>
-        <mat-card-header>
-            <div mat-card-avatar class="examole-header-image"></div>
-            <mat-card-title>{{item.name}}</mat-card-title>
-            <mat-card-subtitle>postby :{{item.postby}} | Posted On : {{item.date | date :'medium'}}</mat-card-subtitle>
-        </mat-card-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="A">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Open Graph Meta Tags (for better social media sharing) -->
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <!-- Twitter Meta Tags (for Twitter Cards) -->
+    <meta name="twitter:card" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="A">
+    <meta name="twitter:image" content="">
+    <!-- Canonical URL (if necessary) -->
+    <link rel="canonical" href="">
+    <!-- Robots Meta Tags -->
+    <meta name="robots" content="index, follow">
+</head>
+<body>
+    <!--  Angular component code -->
+    <div class="card-container" *ngFor="let item of allpost" >
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar class="examole-header-image"></div>
+                <mat-card-title>{{item.name}}</mat-card-title>
+                <mat-card-subtitle>postby :{{item.postby}} | Posted On : {{item.date | date :'medium'}}</mat-card-subtitle>
+            </mat-card-header>
+    
+            <mat-grid-list cols="5">
+                <mat-grid-tile [colspan]="2" [rowspan]="1">
+                    <img mat-card-image [src]="item.img" class="post-img" alt="card Image"/>
+                    <!-- <img src="assets/img/i2.jpg" alt="Girl in a jacket" width="500" height="600"> -->
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="3" [rowspan]="1">
+                   <mat-card-content>{{item.content.lenght > 600 ? item.content.substr(0,600) + '....': item.content}}</mat-card-content>
+                </mat-grid-tile>
+    
+            </mat-grid-list>
+    
+            <hr>
+            <mat-card-actions>
+                <button mat-raised-button color="primary">{{item.likeCount}} <mat-icon>favorite</mat-icon></button>
+                <button mat-raised-button color="primary" style="margin-left: 5px;">{{item.viewCount}} <mat-icon>remove_red_eye</mat-icon></button>
+                <button mat-raised-button color="primary" style="margin-left: 5px;" routerLink="/view-news/{{item.id}}">Read more..</button>
+    
+            </mat-card-actions>
+        </mat-card>    
+    </div>
 
-        <mat-grid-list cols="5">
-            <mat-grid-tile [colspan]="2" [rowspan]="1">
-                <img mat-card-image [src]="item.img" class="post-img" alt="card Image"/>
-                <!-- <img src="assets/img/i2.jpg" alt="Girl in a jacket" width="500" height="600"> -->
-            </mat-grid-tile>
-            <mat-grid-tile [colspan]="3" [rowspan]="1">
-               <mat-card-content>{{item.content.lenght > 600 ? item.content.substr(0,600) + '....': item.content}}</mat-card-content>
-            </mat-grid-tile>
-
-        </mat-grid-list>
-
-        <hr>
-        <mat-card-actions>
-            <button mat-raised-button color="primary">{{item.likeCount}} <mat-icon>favorite</mat-icon></button>
-            <button mat-raised-button color="primary" style="margin-left: 5px;">{{item.viewCount}} <mat-icon>remove_red_eye</mat-icon></button>
-            <button mat-raised-button color="primary" style="margin-left: 5px;" routerLink="/view-news/{{item.id}}">Read more..</button>
-
-        </mat-card-actions>
-    </mat-card>
-
-</div>
+</body>
+</html>
